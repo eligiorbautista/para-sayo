@@ -14,14 +14,16 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             background-color: #272727;
             color: #ffffff;
             text-align: center;
+            overflow: auto;
         }
 
-        #happyNewYear {
+        #happyNewYear,
+        .fade-in-text {
             font-size: 3em;
             opacity: 0;
             transition: opacity 1s ease-in-out;
@@ -34,6 +36,7 @@
 
         #cardContainer {
             display: none;
+            height: 90%;
             width: 52%;
             opacity: 0;
             transition: opacity 3s ease-in-out;
@@ -43,7 +46,9 @@
         }
 
         .card-header {
+            margin: 0 auto !important;
             background-color: whitesmoke;
+            width: 50%;
         }
 
         .card-body {
@@ -69,10 +74,8 @@
             border-radius: 10px;
         }
 
-
         .card-text {
-            background-color: #f8f9fa;
-            text-align: start !important;
+            background-color: whitesmoke;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -87,7 +90,6 @@
         img {
             box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
             height: auto;
-            width: 100%;
         }
 
         .fade-in {
@@ -95,10 +97,13 @@
         }
 
         @media (max-width: 480px) {
-            #cardContainer {
+            .card-header {
                 width: 100%;
             }
 
+            #cardContainer {
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -108,172 +113,221 @@
     <div id="happyNewYear" class="text-center">
         <h1 class="display-5 font-weight-light">happy new year my love</h1>
     </div>
-    <button id="button" class="btn btn-outline-light" onclick="showCard()">Click me to open the message</button>
-    <div class="container">
-        <div id="cardContainer" class="card text-dark mx-auto">
-            <div id="carousel" class="carousel slide card-header " data-ride="carousel">
-                <div class="carousel-inner  mx-auto">
-                    <!--  -->
-                    <div class="carousel-item active ">
-                        <img src="./assets/images/1.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/2.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/3.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/4.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/5.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/6.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/7.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/8.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/9.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/10.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/11.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/12.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/13.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/14.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/15.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/16.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/17.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/18.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/19.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/20.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/21.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/22.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/23.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/24.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/25.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/26.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/27.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/28.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/29.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/30.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/31.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/32.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
-                    <div class="carousel-item">
-                        <img src="./assets/images/33.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
-                    </div>
-                    <!--  -->
+
+    <div class="fade-in-text" id="apologyText" style="display: none;">
+        <h1 class="display-5 font-weight-light">I'm sorry for everything</h1>
+    </div>
+
+    <div class="fade-in-text" id="loveText" style="display: none;">
+        <h1 class="display-5 font-weight-light">mahal na mahal kita</h1>
+    </div>
+
+    <button id="button" class="btn btn-outline-light" style="display: none;" onclick="showCard()">Click me to open the
+        message</button>
+
+    <div id="cardContainer" class="card text-dark mx-auto">
+        <div id="carousel" class="carousel slide card-header " data-ride="carousel">
+            <div class="carousel-inner  mx-auto">
+                <!--  -->
+                <div class="carousel-item active ">
+                    <img src="./assets/images/1.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
                 </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/2.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/3.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/4.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/5.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/6.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/7.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/8.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/9.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/10.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/11.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/12.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/13.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/14.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/15.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/16.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/17.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/18.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/19.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/20.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/21.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/22.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/23.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/24.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/25.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/26.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/27.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/28.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/29.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/30.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/31.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/32.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
+                <div class="carousel-item">
+                    <img src="./assets/images/33.jpg" class="d-block w-100 mx-auto" alt="" draggable="false">
+                </div>
+                <!--  -->
             </div>
-            <div class="card-body">
-                <h5 class="card-title">Sorry Letter</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni quas porro
-                    reiciendis minima id itaque, fugiat consequatur expedita libero aspernatur debitis repudiandae
-                    accusantium, sapiente iusto? Aliquam animi eligendi ex harum perspiciatis quasi dignissimos officia
-                    rem deserunt quas excepturi quisquam consectetur exercitationem vero quos, qui dolor facilis veniam
-                    nesciunt, repellendus omnis pariatur? Dicta exercitationem consequuntur quaerat soluta accusantium
-                    omnis minima? Distinctio culpa in facere. Aliquam perferendis quibusdam numquam sit quod saepe eaque
-                    ullam necessitatibus. Ipsam porro at dolorum, ex obcaecati deserunt velit itaque possimus distinctio
-                    earum et blanditiis deleniti nisi quas. Quo praesentium, voluptatum distinctio similique a velit
-                    illo repellat repudiandae dolorem laborum recusandae, doloribus, nihil odio. Aperiam officiis modi
-                    eaque commodi quo eligendi, similique possimus debitis quis. Incidunt perspiciatis, libero minima
-                    unde, quia autem tempora ratione sunt magnam ducimus fuga reiciendis quas! Nihil, odit? Expedita
-                    cumque ea tempore in hic aliquam excepturi sed doloribus natus, debitis possimus? Incidunt odio
-                    tempora voluptate omnis, ab maxime rerum obcaecati, beatae rem dolorem earum minima magni illum
-                    facilis a officia veritatis et itaque. Alias nisi porro dolorum, blanditiis ratione doloribus
-                    excepturi! Reiciendis asperiores pariatur saepe tempore rerum. Sint nam nihil dolorum deserunt
-                    labore magni atque natus provident, adipisci temporibus, consequuntur voluptates id quod. Animi!</p>
-            </div>
-            <hr>
         </div>
+        <div class="card-body">
+            <p></p>
+            <div class="card-text">
+                <p style="text-align: start;">Mahal ko,</p>
+                <p style="text-align: justify;">kahit anong gawin ko, laging nasa isip kita. Ikaw ang nagbibigay
+                    ng kulay sa bawat araw ko. Ang bawat ngiti mo ay parang kumukulay sa malamlam kong mundo.
+                    Mahirap ieksplika kung gaano kalaki ang epekto mo sa buhay ko. Ang bawat sandali na
+                    magkasama tayo ay parang isang napakagandang panaginip na ayaw ko sanang magising.
+                    <br>
+                    Sa piling mo, natutunan kong tanggapin at mahalin ang sarili ko. Salamat sa pagmamahal
+                    na laging bukal sa iyong puso. Alam mo bang ikaw ang nagbibigay saya sa bawat araw ko?
+                    Hindi ko inakalang may makakapagdala sa akin ng ganitong kasiyahan at pag-ibig.
+                    <br>
+                    Gusto kong malaman mo na ikaw lang ang iibigin ko. Handa akong maghintay at sumuporta
+                    sa iyo sa lahat ng bagay. Hindi mo alam kung gaano kita kamahal. Sobrang saya ko
+                    tuwing kasama kita, at nais ko sanang maging parte ka ng aking hinaharap.
+                    <br>
+                    Mahal, sana ay nararamdaman mo ang pagmamahal ko sa bawat letra ng liham na ito.
+                    Huwag mong kalimutan na andito lang ako palagi para sayo.
+
+                    
+                </p>
+                <p style="text-align: start;">Sa pag-ibig,</p>
+                <p style="text-align: start;">Eligio</p>
+            </div>
+        </div>
+
+        <hr>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+        // Function to fade in and out text with a fade effect
+        function fadeInText(elementId) {
+            var element = document.getElementById(elementId);
+            element.style.display = "block";
+            var opacity = 0;
+            var fadeInInterval = setInterval(function () {
+                opacity += 0.1;
+                element.style.opacity = opacity;
+                if (opacity >= 1) {
+                    clearInterval(fadeInInterval);
+                    setTimeout(function () {
+                        fadeOutText(elementId);
+                    }, 2000); // Adjust the delay before fade-out
+                }
+            }, 100);
+        }
+
+        // Function to fade out text
+        function fadeOutText(elementId) {
+            var element = document.getElementById(elementId);
+            var opacity = 1;
+            var fadeOutInterval = setInterval(function () {
+                opacity -= 0.1;
+                element.style.opacity = opacity;
+                if (opacity <= 0) {
+                    clearInterval(fadeOutInterval);
+                    element.style.display = "none";
+                    element.parentNode.removeChild(element);
+                }
+            }, 100);
+        }
+
         function showHappyNewYear() {
             var happyNewYearElement = document.getElementById("happyNewYear");
             happyNewYearElement.style.opacity = 1;
@@ -281,10 +335,22 @@
                 happyNewYearElement.style.opacity = 0;
                 setTimeout(function () {
                     happyNewYearElement.parentNode.removeChild(happyNewYearElement);
-                    document.getElementById("button").style.display = "block";
-                    document.getElementById("button").classList.add("fade-in");
+                    showApologyAndLoveText();
                 }, 1000);
             }, 2000);
+        }
+
+        function showApologyAndLoveText() {
+            fadeInText("apologyText");
+
+            setTimeout(function () {
+                fadeInText("loveText");
+                setTimeout(function () {
+                    var button = document.getElementById("button");
+                    button.classList.add("fade-in");
+                    button.style.display = "block";
+                }, 3000); // Changed timing here
+            }, 3000);
         }
 
         function showCard() {
@@ -296,11 +362,12 @@
 
             var audio = document.getElementById("audio");
             audio.load();
-            audio.volume = 0.1;
+            audio.volume = 0.2;
 
             audio.addEventListener('canplaythrough', function () {
                 audio.play();
             });
+
             $('.carousel').carousel();
         }
 
