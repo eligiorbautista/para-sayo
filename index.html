@@ -29,16 +29,25 @@
         }
 
         #happyNewYear,
-        .fade-in-text {
+        #loveText,
+        #apologyText {
             font-size: 3em;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: all 1s ease-in-out !important;
             margin-bottom: 20px;
         }
 
-        #button {
-            display: none;
+        .btn-outline-warning {
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset !important;
+            font-size: 1.2rem !important;
+            text-transform: uppercase;
+            transition: opacity 1s ease-in-out !important;
+            opacity: 0;
+            margin-top: 20px;
+            font-weight: 500 !important;
+            /* Add margin-top for better spacing */
         }
+
 
         #cardContainer {
             display: none;
@@ -115,21 +124,21 @@
 </head>
 
 <body>
-    <audio id="audio" src="assets/audio/kung-di-rin-lang-ikaw.mp3" loop></audio>
     <div id="happyNewYear" class="text-center">
         <h1 class="display-5 font-weight-light">happy new year my love</h1>
     </div>
 
-    <div class="fade-in-text" id="apologyText" style="display: none;">
+    <div id="apologyText" style="display: none;">
         <h1 class="display-5 font-weight-light">I'm sorry for everything</h1>
     </div>
 
-    <div class="fade-in-text" id="loveText" style="display: none;">
+    <div id="loveText" style="display: none;">
         <h1 class="display-5 font-weight-light">mahal na mahal kita</h1>
     </div>
 
-    <button id="button" class="btn btn-outline-light" style="display: none;" onclick="showCard()">Click me to open the
+    <button id="button" class="btn btn-outline-warning" style="opacity: 0;" onclick="showCard()">Click me to open the
         message</button>
+
 
     <div id="cardContainer" class="card text-dark mx-auto">
         <div id="carousel" class="carousel slide card-header " data-ride="carousel">
@@ -300,38 +309,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // Function to fade in and out text with a fade effect
-        function fadeInText(elementId) {
-            var element = document.getElementById(elementId);
-            element.style.display = "block";
-            var opacity = 0;
-            var fadeInInterval = setInterval(function () {
-                opacity += 0.1;
-                element.style.opacity = opacity;
-                if (opacity >= 1) {
-                    clearInterval(fadeInInterval);
-                    setTimeout(function () {
-                        fadeOutText(elementId);
-                    }, 2000); // Adjust the delay before fade-out
-                }
-            }, 100);
-        }
-
-        // Function to fade out text
-        function fadeOutText(elementId) {
-            var element = document.getElementById(elementId);
-            var opacity = 1;
-            var fadeOutInterval = setInterval(function () {
-                opacity -= 0.1;
-                element.style.opacity = opacity;
-                if (opacity <= 0) {
-                    clearInterval(fadeOutInterval);
-                    element.style.display = "none";
-                    element.parentNode.removeChild(element);
-                }
-            }, 100);
-        }
-
         function showHappyNewYear() {
             var happyNewYearElement = document.getElementById("happyNewYear");
             happyNewYearElement.style.opacity = 1;
@@ -339,30 +316,50 @@
                 happyNewYearElement.style.opacity = 0;
                 setTimeout(function () {
                     happyNewYearElement.parentNode.removeChild(happyNewYearElement);
-                    showApologyAndLoveText();
+                    showApologyText();
                 }, 1000);
             }, 2000);
         }
 
-        function showApologyAndLoveText() {
-            fadeInText("apologyText");
-
+        function showApologyText() {
+            var element = document.getElementById("apologyText");
+            element.style.display = "block";
             setTimeout(function () {
-                fadeInText("loveText");
+                element.style.opacity = 1;
                 setTimeout(function () {
-                    var button = document.getElementById("button");
-                    button.classList.add("fade-in");
-                    button.style.display = "block";
-                }, 3000); // Changed timing here
-            }, 3000);
+                    element.style.opacity = 0;
+                    setTimeout(function () {
+                        element.parentNode.removeChild(element);
+                        showLoveText();
+                    }, 1000);
+                }, 2000);
+            }, 100);
+        }
+
+        function showLoveText() {
+            var element = document.getElementById("loveText");
+            element.style.display = "block";
+            setTimeout(function () {
+                element.style.opacity = 1;
+                setTimeout(function () {
+                    element.style.opacity = 0;
+                    setTimeout(function () {
+                        element.parentNode.removeChild(element);
+                        var button = document.getElementById("button");
+                        button.style.opacity = 1;
+                    }, 1000);
+                }, 2000);
+            }, 100);
         }
 
         function showCard() {
             var cardContainer = document.getElementById("cardContainer");
+            var button = document.getElementById("button");
+            button.style.opacity = 0;
+            button.parentNode.removeChild(button);
             cardContainer.style.display = "block";
             cardContainer.offsetHeight;
             cardContainer.classList.add("fade-in");
-            document.getElementById("button").style.display = "none";
 
             var audio = document.getElementById("audio");
             audio.load();
@@ -375,7 +372,9 @@
             $('.carousel').carousel();
         }
 
-        setTimeout(showHappyNewYear, 1000);
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(showHappyNewYear, 1000);
+        });
     </script>
 </body>
 
