@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para sa mahal ko</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/icon.png" type="image/x-icon">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
@@ -124,6 +125,7 @@
 </head>
 
 <body>
+    <audio id="audio" src="assets/audio/kung-di-rin-lang-ikaw.mp3" loop></audio>
     <div id="happyNewYear" class="text-center">
         <h1 class="display-5 font-weight-light">happy new year my love</h1>
     </div>
@@ -136,7 +138,8 @@
         <h1 class="display-5 font-weight-light">mahal na mahal kita</h1>
     </div>
 
-    <button id="button" class="btn btn-outline-warning" style="opacity: 0;" onclick="showCard()">Click me to open the
+    <button id="button" class="btn btn-outline-warning" style="opacity: 0; display: none;" onclick="showCard()">Click me
+        to open the
         message</button>
 
 
@@ -338,14 +341,16 @@
 
         function showLoveText() {
             var element = document.getElementById("loveText");
+            var button = document.getElementById("button");
+
             element.style.display = "block";
             setTimeout(function () {
                 element.style.opacity = 1;
                 setTimeout(function () {
                     element.style.opacity = 0;
+                    button.style.display = "inline";
                     setTimeout(function () {
                         element.parentNode.removeChild(element);
-                        var button = document.getElementById("button");
                         button.style.opacity = 1;
                     }, 1000);
                 }, 2000);
@@ -365,7 +370,7 @@
             audio.load();
             audio.volume = 0.2;
 
-            audio.addEventListener('canplaythrough', function () {
+            audio.addEventListener('loadedmetadata', function () {
                 audio.play();
             });
 
